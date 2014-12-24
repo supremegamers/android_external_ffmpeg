@@ -1,4 +1,4 @@
-# subsystems
+OBJS-$(CONFIG_DCA_DECODER)              += aarch64/synth_filter_init.o
 OBJS-$(CONFIG_FFT)                      += aarch64/fft_init_aarch64.o
 OBJS-$(CONFIG_FMTCONVERT)               += aarch64/fmtconvert_init.o
 OBJS-$(CONFIG_H264CHROMA)               += aarch64/h264chroma_init_aarch64.o
@@ -26,7 +26,7 @@ OBJS-$(CONFIG_VP9_DECODER)              += aarch64/vp9dsp_init_10bpp_aarch64.o \
                                            aarch64/vp9mc_aarch64.o             \
                                            aarch64/vp9dsp_init_aarch64.o
 
-# ARMv8 optimizations
+OBJS-$(CONFIG_VIDEODSP)                 += aarch64/videodsp.o
 
 # subsystems
 ARMV8-OBJS-$(CONFIG_VIDEODSP)           += aarch64/videodsp.o
