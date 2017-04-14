@@ -5720,7 +5720,6 @@ probe_libc host_
 
 case $libc_type in
     bionic)
-        add_compat strtod.o strtod=avpriv_strtod
         ;;
 esac
 
