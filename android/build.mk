@@ -67,7 +67,7 @@ LOCAL_CFLAGS += \
 	-Wno-constant-conversion -Wno-incompatible-pointer-types-discards-qualifiers \
 	-Wno-initializer-overrides -Wno-sometimes-uninitialized -Wno-string-plus-int \
 	-Wno-unneeded-internal-declaration -Wno-unused-function -Wno-absolute-value \
-	-Wno-expansion-to-defined -Wno-string-plus-int \
+	-Wno-expansion-to-defined -Wno-string-plus-int -Wno-bool-operation \
 	-Werror=format-security -Werror=implicit-function-declaration -Werror=missing-prototypes \
 	-Werror=return-type -Werror=vla -Wformat -Wno-maybe-uninitialized -fPIC
 
