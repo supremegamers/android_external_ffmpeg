@@ -36,7 +36,7 @@
 #include "libavutil/log.h"
 #include "libavutil/opt.h"
 #include "libavutil/pixfmt.h"
-#include "libavutil/time.h"
+#include "libavutil/avtime.h"
 #include "libavutil/imgutils.h"
 
 #include "avcodec.h"

@@ -42,7 +42,7 @@
 #include "mem.h"
 #include "pixfmt.h"
 #include "pixdesc.h"
-#include "time.h"
+#include "avtime.h"
 
 #define QSV_VERSION_ATLEAST(MAJOR, MINOR)   \
     (MFX_VERSION_MAJOR > (MAJOR) ||         \

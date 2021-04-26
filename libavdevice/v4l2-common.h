@@ -43,7 +43,7 @@
 #include "timefilter.h"
 #include "libavutil/parseutils.h"
 #include "libavutil/pixdesc.h"
-#include "libavutil/time.h"
+#include "libavutil/avtime.h"
 #include "libavutil/avstring.h"
 
 struct fmt_map {

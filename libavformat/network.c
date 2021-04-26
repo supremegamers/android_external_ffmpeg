@@ -26,7 +26,7 @@
 #include "libavutil/avutil.h"
 #include "libavutil/avassert.h"
 #include "libavutil/mem.h"
-#include "libavutil/time.h"
+#include "libavutil/avtime.h"
 
 int ff_tls_init(void)
 {

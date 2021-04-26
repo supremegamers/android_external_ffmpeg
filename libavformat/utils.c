@@ -32,7 +32,7 @@
 #include "libavutil/parseutils.h"
 #include "libavutil/pixfmt.h"
 #include "libavutil/thread.h"
-#include "libavutil/time.h"
+#include "libavutil/avtime.h"
 #include "libavutil/timestamp.h"
 
 #include "libavcodec/bytestream.h"
