@@ -24,7 +24,7 @@
 #include <string.h>
 
 #include "libavutil/log.h"
-#include "libavutil/time.h"
+#include "libavutil/avtime.h"
 
 #include "avcodec.h"
 #include "dxva2_internal.h"

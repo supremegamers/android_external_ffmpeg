@@ -38,7 +38,7 @@
 #include "mem.h"
 #include "pixfmt.h"
 #include "pixdesc.h"
-#include "time.h"
+#include "avtime.h"
 
 typedef struct QSVDevicePriv {
     AVBufferRef *child_device_ctx;

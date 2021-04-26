@@ -33,7 +33,7 @@ extern "C" {
 #include "libavutil/avutil.h"
 #include "libavutil/common.h"
 #include "libavutil/imgutils.h"
-#include "libavutil/time.h"
+#include "libavutil/avtime.h"
 #include "libavutil/mathematics.h"
 #if CONFIG_LIBZVBI
 #include <libzvbi.h>

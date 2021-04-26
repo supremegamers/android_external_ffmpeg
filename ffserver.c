@@ -47,7 +47,7 @@
 #include "libavutil/rational.h"
 #include "libavutil/parseutils.h"
 #include "libavutil/opt.h"
-#include "libavutil/time.h"
+#include "libavutil/avtime.h"
 
 #include <stdarg.h>
 #if HAVE_UNISTD_H

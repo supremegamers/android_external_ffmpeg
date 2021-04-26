@@ -36,7 +36,7 @@
 #include "libavutil/opt.h"
 #include "libavformat/internal.h"
 #include "libavutil/internal.h"
-#include "libavutil/time.h"
+#include "libavutil/avtime.h"
 #include "avdevice.h"
 
 #define QTKIT_TIMEBASE 100
