@@ -8,7 +8,7 @@ TARGETS="x86 x86_64"
 [ -d "$ANDROID_NDK_HOME" ] || { echo "ANDROID_NDK_HOME is not properly set"; exit 1; }
 TOOLS_BASE="$ANDROID_NDK_HOME/toolchains/llvm/prebuilt/linux-x86_64/bin"
 
-BASE_CONFIG="--disable-static --enable-shared --enable-optimizations --disable-doc --disable-symver --disable-ffmpeg --disable-ffplay --disable-ffprobe --disable-avdevice --disable-devices --disable-filters --disable-demuxer=srt --disable-demuxer=microdvd --disable-demuxer=jacosub --disable-demuxer=sami --disable-demuxer=realtext --disable-demuxer=dts --disable-demuxer=subviewer --disable-demuxer=subviewer1 --disable-demuxer=pjs --disable-demuxer=vplayer --disable-demuxer=mpl2 --disable-decoder=ass --disable-decoder=srt --disable-decoder=subrip --disable-decoder=microdvd --disable-decoder=jacosub --disable-decoder=sami --disable-decoder=realtext --disable-decoder=movtext --disable-decoder=subviewer --disable-decoder=subviewer1 --disable-decoder=pjs --disable-decoder=vplayer --disable-decoder=mpl2 --disable-v4l2_m2m --enable-zlib --enable-pic --disable-debug --nm=${TOOLS_BASE}/llvm-nm --strip=${TOOLS_BASE}/llvm-strip --ar=${TOOLS_BASE}/llvm-ar --ranlib=${TOOLS_BASE}/llvm-ranlib --x86asmexe=${TOOLS_BASE}/yasm"
+BASE_CONFIG="--disable-static --enable-shared --enable-optimizations --disable-doc --disable-symver --disable-ffmpeg --disable-ffplay --disable-ffprobe --disable-avdevice --disable-devices --disable-filters --disable-demuxer=srt --disable-demuxer=microdvd --disable-demuxer=jacosub --disable-demuxer=sami --disable-demuxer=realtext --disable-demuxer=dts --disable-demuxer=subviewer --disable-demuxer=subviewer1 --disable-demuxer=pjs --disable-demuxer=vplayer --disable-demuxer=mpl2 --disable-decoder=ass --disable-decoder=srt --disable-decoder=subrip --disable-decoder=microdvd --disable-decoder=jacosub --disable-decoder=sami --disable-decoder=realtext --disable-decoder=movtext --disable-decoder=subviewer --disable-decoder=subviewer1 --disable-decoder=pjs --disable-decoder=vplayer --disable-decoder=mpl2 --disable-v4l2_m2m --enable-filter=scale --enable-filter=yadif --enable-filter=scale_vaapi --enable-filter=deinterlace_vaapi --enable-zlib --enable-pic --disable-debug --nm=${TOOLS_BASE}/llvm-nm --strip=${TOOLS_BASE}/llvm-strip --ar=${TOOLS_BASE}/llvm-ar --ranlib=${TOOLS_BASE}/llvm-ranlib --x86asmexe=${TOOLS_BASE}/yasm"
 
 # OPTS_armv5te="--arch=arm --cpu=armv5te --build_suffix= --cross-prefix=${TOOLS_BASE}/arm/arm-linux-androideabi-4.9/bin/arm-linux-androideabi- --enable-cross-compile --sysroot=${SYSROOT_BASE}/arch-arm --target-os=android"
 # 
@@ -43,6 +43,7 @@ done
 GENERATED_FILES=" \
     config_components.h \
     libavutil/avconfig.h \
+    libavfilter/filter_list.c \
     libavcodec/codec_list.c \
     libavcodec/parser_list.c \
     libavcodec/bsf_list.c \
