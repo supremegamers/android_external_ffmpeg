@@ -238,7 +238,10 @@ static int decode_plane(UtvideoContext *c, int plane_no,
     VLC vlc;
     GetBitContext gb;
     int prev, fsym;
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wbool-operation"
     const int cmask = c->interlaced ? ~(1 + 2 * (!plane_no && c->avctx->pix_fmt == AV_PIX_FMT_YUV420P)) : ~(!plane_no && c->avctx->pix_fmt == AV_PIX_FMT_YUV420P);
+#pragma GCC diagnostic pop
 
     if (build_huff(src, &vlc, &fsym)) {
         av_log(c->avctx, AV_LOG_ERROR, "Cannot build Huffman codes\n");
