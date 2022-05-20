@@ -5339,6 +5339,7 @@ case $target_os in
         disable symver
         enable section_data_rel_ro
         add_cflags -fPIE
+        add_ldflags -Wl,-z,notext
         add_ldexeflags -fPIE -pie
         SLIB_INSTALL_NAME='$(SLIBNAME)'
         SLIB_INSTALL_LINKS=
