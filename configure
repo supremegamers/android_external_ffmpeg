@@ -3773,7 +3773,6 @@ nm_default="nm -g"
 pkg_config_default=pkg-config
 ranlib_default="ranlib"
 strip_default="strip"
-version_script='--version-script'
 objformat="elf32"
 x86asmexe_default="nasm"
 windres_default="windres"
