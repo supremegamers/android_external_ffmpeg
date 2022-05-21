@@ -24,7 +24,6 @@
 #if HAVE_VAAPI_DRM
 #   include <va/va_drm.h>
 #endif
-
 #if CONFIG_LIBDRM
 #   include <va/va_drmcommon.h>
 #   include <xf86drm.h>
@@ -32,6 +31,9 @@
 #   ifndef DRM_FORMAT_MOD_INVALID
 #       define DRM_FORMAT_MOD_INVALID ((1ULL << 56) - 1)
 #   endif
+#endif
+#if HAVE_VAAPI_ANDROID
+#   include <va/va_android.h>
 #endif
 
 #include <fcntl.h>
@@ -1497,7 +1499,7 @@ static int vaapi_device_create(AVHWDeviceContext *ctx, const char *device,
     VAAPIDevicePriv *priv;
     VADisplay display = NULL;
     const AVDictionaryEntry *ent;
-    int try_drm, try_x11, try_all;
+    int try_drm, try_x11, try_android, try_all;
 
     priv = av_mallocz(sizeof(*priv));
     if (!priv)
@@ -1510,11 +1512,13 @@ static int vaapi_device_create(AVHWDeviceContext *ctx, const char *device,
 
     ent = av_dict_get(opts, "connection_type", NULL, 0);
     if (ent) {
-        try_all = try_drm = try_x11 = 0;
+        try_all = try_drm = try_x11 = try_android = 0;
         if (!strcmp(ent->value, "drm")) {
             try_drm = 1;
         } else if (!strcmp(ent->value, "x11")) {
             try_x11 = 1;
+        } else if (!strcmp(ent->value, "android")) {
+            try_android = 1;
         } else {
             av_log(ctx, AV_LOG_ERROR, "Invalid connection type %s.\n",
                    ent->value);
@@ -1524,6 +1528,7 @@ static int vaapi_device_create(AVHWDeviceContext *ctx, const char *device,
         try_all = 1;
         try_drm = HAVE_VAAPI_DRM;
         try_x11 = HAVE_VAAPI_X11;
+        try_android = HAVE_VAAPI_ANDROID;
     }
 
 #if HAVE_VAAPI_DRM
@@ -1613,6 +1618,22 @@ static int vaapi_device_create(AVHWDeviceContext *ctx, const char *device,
             av_log(ctx, AV_LOG_VERBOSE, "Opened VA display via "
                    "X11 display %s.\n", XDisplayName(device));
         }
+    }
+#endif
+
+#if HAVE_VAAPI_ANDROID
+    if (!display && try_android) {
+        int mDisplay;
+        mDisplay = 0x18C34078;
+        display = vaGetDisplay(&mDisplay);
+        if (!display) {
+            av_log(ctx, AV_LOG_ERROR, "Cannot open a VA display "
+                   "from Android device %s.\n", device);
+            return AVERROR_UNKNOWN;
+        }
+
+        av_log(ctx, AV_LOG_VERBOSE, "Opened VA display via "
+               "Android device %s.\n", device);
     }
 #endif
 

@@ -2258,6 +2258,7 @@ SYSTEM_FUNCS="
 
 SYSTEM_LIBRARIES="
     bcrypt
+    vaapi_android
     vaapi_drm
     vaapi_x11
     vdpau_x11
@@ -3726,7 +3727,7 @@ swscale_suggest="libm"
 
 avcodec_extralibs="pthreads_extralibs iconv_extralibs dxva2_extralibs"
 avfilter_extralibs="pthreads_extralibs"
-avutil_extralibs="d3d11va_extralibs nanosleep_extralibs pthreads_extralibs vaapi_drm_extralibs vaapi_x11_extralibs vdpau_x11_extralibs"
+avutil_extralibs="d3d11va_extralibs nanosleep_extralibs pthreads_extralibs vaapi_android_extralibs vaapi_drm_extralibs vaapi_x11_extralibs vdpau_x11_extralibs"
 
 # programs
 ffmpeg_deps="avcodec avfilter avformat"
@@ -5337,6 +5338,7 @@ case $target_os in
     android)
         disable symver
         enable section_data_rel_ro
+        enable vaapi vaapi_android
         add_cflags -fPIE
         add_ldflags -Wl,-z,notext
         add_ldexeflags -fPIE -pie
