@@ -20,7 +20,6 @@ LOCAL_SHARED_LIBRARIES +=	\
 	libz \
 
 ifeq ($(CONFIG_VAAPI),yes)
-  LOCAL_SRC_FILES += ../ffmpeg_vaapi.c
   LOCAL_SHARED_LIBRARIES += libva
 endif
 
@@ -41,7 +40,6 @@ LOCAL_SHARED_LIBRARIES +=	\
 	libz \
 
 ifeq ($(CONFIG_VAAPI),yes)
-  LOCAL_SRC_FILES += ../ffmpeg_vaapi.c
   LOCAL_SHARED_LIBRARIES += libva
 endif
 

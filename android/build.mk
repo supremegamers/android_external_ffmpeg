@@ -60,7 +60,7 @@ LOCAL_C_INCLUDES := $(SUBDIR) $(FFMPEG_DIR)
 LOCAL_EXPORT_C_INCLUDE_DIRS := $(LOCAL_C_INCLUDES)
 
 LOCAL_CFLAGS += \
-	-O3 -std=c99 -fno-math-errno -fno-signed-zeros -fomit-frame-pointer \
+	-O3 -fno-math-errno -fno-signed-zeros -fomit-frame-pointer \
 	-Wno-pointer-to-int-cast -Wstrict-prototypes -Wempty-body -Wno-parentheses \
 	-Wno-switch -Wno-format-zero-length -Wno-pointer-sign -Wno-unused-parameter \
 	-Wno-deprecated-declarations -Wno-missing-field-initializers -Wno-sign-compare \
@@ -68,7 +68,7 @@ LOCAL_CFLAGS += \
 	-Wno-initializer-overrides -Wno-sometimes-uninitialized -Wno-string-plus-int \
 	-Wno-unneeded-internal-declaration -Wno-unused-function -Wno-absolute-value \
 	-Werror=format-security -Werror=implicit-function-declaration -Werror=missing-prototypes \
-	-Werror=return-type -Werror=vla -Wformat -Wno-maybe-uninitialized -fPIC
+	-Werror=return-type -Werror=vla -Wformat -Wno-maybe-uninitialized -fPIC -Wno-unused-const-variable
 
 LOCAL_ASFLAGS_x86 := -Pconfig-x86.asm
 LOCAL_ASFLAGS_x86_64 := -Pconfig-x86_64.asm
