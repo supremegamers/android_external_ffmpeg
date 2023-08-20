@@ -56,7 +56,7 @@ LOCAL_PROPRIETARY_MODULE := true
 LOCAL_SRC_FILES := $(C_FILES) $(S_FILES)
 
 LOCAL_C_INCLUDES := $(SUBDIR) $(FFMPEG_DIR) \
-					external/dav1d/include
+					glodroid/dav1d/include
 
 LOCAL_EXPORT_C_INCLUDE_DIRS := $(LOCAL_C_INCLUDES)
 
